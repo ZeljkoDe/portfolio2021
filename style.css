@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-color: #9ac8eb;
+  background-color: #cdfffc;
   height: 100vh;
   position: relative;
   font-family: "Comfortaa", "Montserrat Alternates", sans-serif, cursive;
@@ -32,6 +32,7 @@ h2 {
 }
 
 p {
+  font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.3px;
 }
@@ -59,13 +60,18 @@ p {
 }
 
 .tile--header svg {
-  height: 0;
+  height: 3px;
   overflow: visible;
 }
 
 .tile--header svg text {
   font-size: 18px;
   letter-spacing: 3px;
+}
+
+.tile--header:hover {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
 }
 
 .tile--about-hiden {
@@ -76,12 +82,18 @@ p {
   position: relative;
   z-index: -1;
   font-weight: 500;
+  pointer-events: visible;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
   background-color: #5784ba;
   color: white;
 }
 
 .tile--about-hiden p {
   opacity: 0;
+  font-size: 14px;
 }
 
 .circle--top {
@@ -96,10 +108,10 @@ p {
 }
 
 .circle--top::after {
-  content: '';
+  content: "";
   height: 220px;
   width: 220px;
-  background: #f7f6cf;
+  background: #ff884b;
   border-radius: 100%;
   position: absolute;
   z-index: 0;
@@ -108,7 +120,7 @@ p {
 }
 
 .circle--top::before {
-  content: '';
+  content: "";
   height: 90px;
   width: 90px;
   background: #5784ba;
@@ -131,7 +143,7 @@ p {
 }
 
 .circle--btm::after {
-  content: '';
+  content: "";
   height: 135px;
   width: 135px;
   background: #f4cfdf;
@@ -143,10 +155,10 @@ p {
 }
 
 .circle--btm::before {
-  content: '';
+  content: "";
   height: 50px;
   width: 50px;
-  background: #f7f6cf;
+  background: #ff884b;
   border-radius: 100%;
   position: absolute;
   z-index: 0;
@@ -217,7 +229,7 @@ p {
 }
 
 .testOK::after {
-  content: '';
+  content: "";
   visibility: hidden;
   position: inherit;
   height: 100%;
@@ -235,8 +247,6 @@ p {
   font-size: 1rem;
   visibility: visible;
   background: linear-gradient(45deg, #ffffff5e, #f8f8f85e);
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
   height: 100%;
   width: 100%;
   bottom: 0;
@@ -260,12 +270,21 @@ p {
 }
 
 .testOK:target .section-1 {
-  border-right: 2px dotted #a0e7e5;
   padding-right: 20px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 35%;
           flex: 0 0 35%;
   height: 100%;
+  pointer-events: none;
+}
+
+.testOK:target .section-1 .tile--about-hiden:hover {
+  -webkit-transform: translateY(calc(-26% + 20px));
+          transform: translateY(calc(-26% + 20px));
+}
+
+.testOK:target .section-1 .tile--about-hiden:hover p {
+  opacity: 1;
 }
 
 .testOK:target .section-2 {
@@ -286,11 +305,11 @@ p {
   padding: 10px;
   margin: 10px;
   background: white;
-  border-radius: 8px;
   margin: 0 auto;
-  height: 100%;
+  height: 80%;
   z-index: 0;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .slider .slider__inner__wrapper {
@@ -326,6 +345,7 @@ p {
 
 .slider .slider__inner__wrapper .slider__items .slider__item {
   min-height: 140px;
+  margin-bottom: 30px;
 }
 
 .slider .slider__inner__wrapper .slider__items .slider__item img {
